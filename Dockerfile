@@ -1,4 +1,8 @@
+
 FROM python:3.12-slim
+RUN apt update && apt install -y curl
+RUN curl -sL https://netfree.link/dl/unix-ca.sh | sh
+RUN pip config set global.cert /usr/lib/ssl/certs/ca-certificates.crt
 
 WORKDIR /app
 
